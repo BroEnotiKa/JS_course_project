@@ -1,9 +1,9 @@
 # JS_course_project
-Команда:
-Габдорахманова Лена
-Крутовский Даня
-Казайкин Матвей
-Стуков Дима
+### Команда:
+* Габдорахманова Лена  |  Mefoolyhi
+* Крутовский Даня      |  krutovsky-danya
+* Казайкин Матвей      |  animolos
+* Стуков Дима          |  BroEnotiKa
 
-Проект:
-<<EMPTY SPACE FOR OUR TOP SECRET PROJECT>>
+### Проект:
+* <EMPTY SPACE FOR OUR TOP SECRET PROJECT>
