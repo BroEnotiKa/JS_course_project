@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+svg {
+    display: block;
+}
+
 .game {
     height: 100vh;
     width: 100vw;
@@ -14,61 +18,83 @@ body {
 }
 
 .cards {
-    margin-top: 10vh;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-gap: 15px;
 }
 
-.game .card {
+.card {
+    position: relative;
+    cursor: pointer;
+}
+
+.card.flipped .back_card {
+    transform: rotateX(180deg);
+}
+
+.card.flipped .front_card {
+    transform: rotateX(360deg);
+}
+
+.back_card, .front_card {
+    backface-visibility: hidden;
+    position: absolute;
     width: 100px;
     height: 100px;
-    background: darkslategray;
     border-radius: 10px;
-    cursor: pointer;
-    transition-property: background-color;
-    transition-duration: 3s;
+    transition: transform 400ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@media (max-width: 1350px) {
-    .cards {
-        grid-gap: 12px;
-        margin-top: 0;
-    }
-    .game .card {
-        width: 12vh;
-        height: 12vh;
-    }
+.back_card {
+    background: darkslategray;
+    z-index: 1;
 }
 
-@media (max-width: 1100px) {
-    .cards {
-        grid-gap: 10px;
-    }
-    .game .card {
-        width: 10vh;
-        height: 10vh;
-    }
+.front_card {
+    background: orange;
 }
 
-@media (max-width: 950px) {
-    .cards {
-        grid-gap: 8px;
-    }
-    .game .card {
-        width: 8vh;
-        height: 8vh;
-    }
-}
+/*@media (max-width: 1350px) {*/
+/*    .cards {*/
+/*        grid-gap: 12px;*/
+/*        margin-top: 0;*/
+/*    }*/
+/*    .game .card {*/
+/*        width: 12vh;*/
+/*        height: 12vh;*/
+/*    }*/
+/*}*/
 
-@media (max-width: 800px) {
-    .cards {
-        grid-gap: 7px;
-        grid-template-columns: repeat(5, 1fr);
-    }
+/*@media (max-width: 1100px) {*/
+/*    .cards {*/
+/*        grid-gap: 10px;*/
+/*    }*/
+/*    .game .card {*/
+/*        width: 10vh;*/
+/*        height: 10vh;*/
+/*    }*/
+/*}*/
 
-    .game .card {
-        width: 7vh;
-        height: 7vh;
-    }
-}
+/*@media (max-width: 950px) {*/
+/*    .cards {*/
+/*        grid-gap: 8px;*/
+/*    }*/
+/*    .game .card {*/
+/*        width: 8vh;*/
+/*        height: 8vh;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 800px) {*/
+/*    .cards {*/
+/*        grid-gap: 7px;*/
+/*        grid-template-columns: repeat(5, 1fr);*/
+/*    }*/
+
+/*    .game .card {*/
+/*        width: 7vh;*/
+/*        height: 7vh;*/
+/*    }*/
+/*}*/
