@@ -88,7 +88,7 @@ const cardsCount = parseInt((prompt('Insert number of cards: ', '40')));
 
 const cardsSection = document.querySelector('.cards')
 cardsSection.style.width = `${1100}px`
-cardsSection.style.height = `${11 * cardsCount}px`
+cardsSection.style.height = `${110 * Math.ceil(cardsCount / 10)}px`
 
 const game = new Game(cardsSection, cardsCount);
 
