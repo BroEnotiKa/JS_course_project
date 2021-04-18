@@ -22,17 +22,29 @@ svg {
     grid-template-columns: repeat(10, 1fr);
 }
 
+.cards.pause_game {
+    pointer-events: none;
+}
+
 .card {
     position: relative;
     cursor: pointer;
 }
 
-.card.flipped .back_card {
+.card.flipped .back_card, .card.find_match .back_card {
     transform: rotateX(180deg);
 }
 
-.card.flipped .front_card {
+.card.flipped .front_card, .card.find_match .front_card {
     transform: rotateX(360deg);
+}
+
+.card.flipped, card.find_match {
+    pointer-events: none;
+}
+
+.graphics {
+    display: none;
 }
 
 .back_card, .front_card {
