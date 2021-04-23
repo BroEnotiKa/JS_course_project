@@ -32,13 +32,13 @@ svg {
     font-weight: bold;
 }
 
-.cards {
+.cards_holder {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 10px;
 }
 
-.cards.pause_game {
+.cards_holder.pause_game {
     pointer-events: none;
 }
 
