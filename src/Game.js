@@ -1,11 +1,11 @@
 import CardsHolder from './CardsHolder.js';
 import SpeedRate from './SpeedRate.js';
-
+import ScoreCounter from './ScoreCounter.js';
 
 class Game {
     constructor(cardsCount) {
         this.cardsHolder = new CardsHolder(cardsCount);
-        this.animation_duration = SpeedRate.coefficient * 1000;
+        this.animation_duration = 1000 / SpeedRate.coefficient;
     }
 
     create() {
@@ -30,10 +30,12 @@ class Game {
 
     _checkFindMatch(firstCard, secondCard) {
         if (firstCard.dataset.cardIndex === secondCard.dataset.cardIndex) {
+            ScoreCounter.updateScore(true);
             firstCard.classList.replace('flipped', 'find_match');
             secondCard.classList.replace('flipped', 'find_match');
             this._checkGameEnd();
         } else {
+            ScoreCounter.updateScore(false);
             setTimeout(() => {
                 firstCard.classList.remove('flipped');
                 secondCard.classList.remove('flipped');

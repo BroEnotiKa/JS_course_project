@@ -32,6 +32,16 @@ svg {
     font-weight: bold;
 }
 
+.score_counter {
+    position: fixed;
+    float: right;
+    right: 10px;
+    top: 10px;
+    color: black;
+    font-size: 150%;
+    font-weight: bold;
+}
+
 .cards_holder {
     display: grid;
     grid-template-columns: repeat(10, 1fr);

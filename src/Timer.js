@@ -2,9 +2,9 @@ import SpeedRate from "./SpeedRate.js";
 
 
 class TimerClass {
-    constructor(){
-        this._timerHtml = document.querySelector('.timer');
-        this._tick = this._create();
+    constructor() {
+        this._timerNode = document.querySelector('.timer').childNodes[0];
+        this._tick = this._createTickFunction();
         this._stopFlag = false;
     }
 
@@ -15,23 +15,26 @@ class TimerClass {
         let timer = function() {
             timerClass._tick();
             if (timerClass._stopFlag) return;
-            setTimeout(timer, SpeedRate.coefficient * 1000);
+            setTimeout(timer, 1000 / SpeedRate.coefficient);
         }
         timer();
     }
 
     clear() {
-        this._timerHtml.childNodes[0].nodeValue = '0';
-        this._tick = this._create();
+        this._timerNode.nodeValue = '0';
+        this._tick = this._createTickFunction();
     }
 
     stop() {
         this._stopFlag = true;
     }
 
-    _create()
-    {
-        let timerNode = this._timerHtml.childNodes[0];
+    getElapsedTime() {
+        return parseInt(this._timerNode.nodeValue)
+    }
+
+    _createTickFunction() {
+        let timerNode = this._timerNode;
         let sec = parseInt(timerNode.nodeValue);
         return function() {
             timerNode.nodeValue = (++sec).toString();
