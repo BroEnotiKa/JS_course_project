@@ -17,6 +17,10 @@ class ScoreCounterClass {
         }
         this._previousTime = time;
     }
+
+    clear() {
+        this._scoreNode.nodeValue = '0';
+    }
 }
 
 const ScoreCounter = new ScoreCounterClass()

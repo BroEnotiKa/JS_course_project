@@ -1,5 +1,4 @@
-import SpeedRate from "./SpeedRate.js";
-
+import SpeedRate from './SpeedRate.js';
 
 class TimerClass {
     constructor() {

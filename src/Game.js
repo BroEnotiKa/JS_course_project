@@ -1,6 +1,7 @@
 import CardsHolder from './CardsHolder.js';
 import SpeedRate from './SpeedRate.js';
 import ScoreCounter from './ScoreCounter.js';
+import Timer from './Timer.js';
 
 class Game {
     constructor(cardsCount) {
@@ -46,8 +47,10 @@ class Game {
     _checkGameEnd() {
         if (!this.cardsHolder.cards.every(card => card.classList.contains('find_match'))) return;
         setTimeout(() => {
+            ScoreCounter.clear();
             this._generateField();
             this._shuffleCards();
+            Timer.clear();
         }, this.animation_duration);
     }
 
