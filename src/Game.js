@@ -4,17 +4,19 @@ import ScoreCounter from './ScoreCounter.js';
 import Timer from './Timer.js';
 
 class Game {
-    constructor(cardsCount) {
-        this.cardsHolder = new CardsHolder(cardsCount);
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+        this.cardsHolder = new CardsHolder();
         this.animation_duration = 1000 / SpeedRate.coefficient;
     }
 
-    create() {
-        this._generateField();
+    async create() {
+        await this._generateField(this.width, this.height);
         this._shuffleCards();
     }
 
-    _flip(selectedCard) {
+    async _flip(selectedCard) {
         selectedCard.classList.add('flipped');
         const flippedCards = this.cardsHolder.cards.filter(c => c.classList.contains('flipped'));
 
@@ -25,16 +27,16 @@ class Game {
                 this.cardsHolder._cardsHolder.classList.remove('pause_game');
             }, this.animation_duration);
 
-            this._checkFindMatch(flippedCards[0], flippedCards[1]);
+            await this._checkFindMatch(flippedCards[0], flippedCards[1]);
         }
     }
 
-    _checkFindMatch(firstCard, secondCard) {
+    async _checkFindMatch(firstCard, secondCard) {
         if (firstCard.dataset.cardIndex === secondCard.dataset.cardIndex) {
             ScoreCounter.updateScore(true);
             firstCard.classList.replace('flipped', 'find_match');
             secondCard.classList.replace('flipped', 'find_match');
-            this._checkGameEnd();
+            await this._checkGameEnd();
         } else {
             ScoreCounter.updateScore(false);
             setTimeout(() => {
@@ -44,18 +46,18 @@ class Game {
         }
     }
 
-    _checkGameEnd() {
+    async _checkGameEnd() {
         if (!this.cardsHolder.cards.every(card => card.classList.contains('find_match'))) return;
         setTimeout(() => {
             ScoreCounter.clear();
-            this._generateField();
+            this._generateField(this.width, this.height);
             this._shuffleCards();
             Timer.clear();
         }, this.animation_duration);
     }
 
-    _generateField() {
-        this.cardsHolder.fill();
+    async _generateField(width, height) {
+        await this.cardsHolder.fill(width, height);
 
         this.cardsHolder.cards.forEach(card => {
             card.addEventListener('click', this._flip.bind(this, card));
