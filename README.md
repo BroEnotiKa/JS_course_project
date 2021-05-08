@@ -6,7 +6,8 @@
 * Стуков Дима          |  BroEnotiKa
 
 ### Проект:
-Игра «Мемори»
+* Игра «Мемори»
+* Серверная часть: https://github.com/BroEnotiKa/JS_course_project_server
 
 ### Задача: 
 Написать игру «мемори»
