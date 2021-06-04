@@ -7,7 +7,7 @@
 
 ### Проект:
 * Игра «Мемори»
-* Серверная часть: https://github.com/BroEnotiKa/JS_course_project_server
+* Серверная часть: https://github.com/Mefoolyhi/js_project_server
 
 ### Задача: 
 Написать игру «мемори»
