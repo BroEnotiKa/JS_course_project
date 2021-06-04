@@ -7,7 +7,7 @@ class CardsHolder {
     async fill(width, height) {
         this._clear();
 
-        await fetch(`http://127.0.0.1:3000/field/?width=${width}&height=${height}`)
+        await fetch(`https://boiling-badlands-26412.herokuapp.com/field/?width=${width}&height=${height}`)
             .then((response) => {
                 if (response.status === 400)
                     throw new Error('Incorrect size!');
